@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>शेती मित्र 2.0</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <i class="fas fa-seedling"></i>
+            <span>शेती मित्र</span>
+        </div>
+        <nav class="navbar">
+            <a href="#home" class="active">मुख्यपृष्ठ</a>
+            <a href="#crops">पिके</a>
+            <a href="#weather">हवामान / बाजारभाव</a>
+            <a href="#ai">AI सहाय्यक</a>
+            <a href="#schemes">सरकारी योजना</a>
+            <a href="#contact">संपर्क</a>
+        </nav>
+        <div class="nav-buttons">
+            <button class="btn-outline"><i class="fas fa-moon"></i></button>
+            <button class="btn-primary">Login</button>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-left">
+            <span class="tag">🌿 Smart Agriculture Platform</span>
+            <h1>शेती मित्र <br> आधुनिक शेतकऱ्याचा डिजिटल साथी</h1>
+            <p>हवामान • बाजारभाव • AI सल्ला • रोग ओळख • सरकारी योजना • खत कॅल्क्युलेटर</p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="scrollToAI()">
+                    <i class="fas fa-robot"></i> AI सुरू करा
+                </button>
+                <button class="btn-outline" onclick="watchDemo()">
+                    <i class="fas fa-play"></i> डेमो पहा
+                </button>
+            </div>
+        </div>
+        <div class="hero-right">
+            <img src="images/farmer.png" alt="Farmer">
+        </div>
+    </section>
+
+    <section class="dashboard-section" id="weather">
+        <div class="section-title">
+            <h2>🌦️ स्मार्ट डॅशबोर्ड</h2>
+            <p>हवामान, बाजारभाव आणि शेतीची महत्त्वाची माहिती</p>
+        </div>
+        <div class="dashboard-grid">
+            <div class="dashboard-card weather-card">
+                <div class="card-icon"><i class="fas fa-cloud-sun"></i></div>
+                <h3>आजचे हवामान</h3>
+                <h1 id="temperature">31°C</h1>
+                <p>Aurangabad, Maharashtra</p>
+                <div class="weather-info">
+                    <span>💧 Humidity: 62%</span>
+                    <span>🌬️ Wind: 12 km/h</span>
+                </div>
+                <button class="btn-primary" style="margin-top: 15px; width: 100%;" onclick="openWeather()">
+                    Live Weather
+                </button>
+            </div>
+
+            <div class="dashboard-card market-card" id="market">
+                <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>आजचे बाजारभाव</h3>
+                <ul class="market-list">
+                    <li>🌱 सोयाबीन - ₹4750</li>
+                    <li>🌾 कापूस - ₹7650</li>
+                    <li>🧅 कांदा - ₹1800</li>
+                    <li>🌽 मका - ₹2200</li>
+                </ul>
+                <button class="btn-primary" style="margin-top: 15px; width: 100%;" onclick="openMarket()">
+                    सर्व बाजारभाव
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="crops-section" id="crops">
+        <div class="section-title">
+            <h2>🌱 प्रमुख पिके</h2>
+            <p>तुमच्या पिकाची निवड करा</p>
+        </div>
+        
+        <div class="crop-grid">
+            <div class="crop-card">
+                <img src="images/cotton.jpg" alt="कापूस">
+                <h3>कापूस</h3>
+                <button class="info-btn" onclick="selectCrop('कापूस')">अधिक माहिती</button>
+            </div>
+            <div class="crop-card">
+                <img src="images/soybean.jpg" alt="सोयाबीन">
+                <h3>सोयाबीन</h3>
+                <button class="info-btn" onclick="selectCrop('सोयाबीन')">अधिक माहिती</button>
+            </div>
+            <div class="crop-card">
+                <img src="images/onion.jpg" alt="कांदा">
+                <h3>कांदा</h3>
+                <button class="info-btn" onclick="selectCrop('कांदा')">अधिक माहिती</button>
+            </div>
+            <div class="crop-card">
+                <img src="images/maize.jpg" alt="मका">
+                <h3>मका</h3>
+                <button class="info-btn" onclick="selectCrop('मका')">अधिक माहिती</button>
+            </div>
+            <div class="crop-card">
+                <img src="images/chickpea.jpg" alt="हरभरा">
+                <h3>हरभरा</h3>
+                <button class="info-btn" onclick="selectCrop('हरभरा')">अधिक माहिती</button>
+            </div>
+            <div class="crop-card">
+                <img src="images/sugarcane.jpg" alt="ऊस">
+                <h3>ऊस</h3>
+                <button class="info-btn" onclick="selectCrop('ऊस')">अधिक माहिती</button>
+            </div>
+            <div class="crop-card">
+                <img src="images/chilli.jpg" alt="मिरची">
+                <h3>मिरची</h3>
+                <button class="info-btn" onclick="selectCrop('मिरची')">अधिक माहिती</button>
+            </div>
+            <div class="crop-card">
+                <img src="images/ginger.jpg" alt="अद्रक">
+                <h3>अद्रक</h3>
+                <button class="info-btn" onclick="selectCrop('अद्रक')">अधिक माहिती</button>
+            </div>
+            <div class="crop-card">
+                <img src="images/tomato.jpg" alt="टोमॅटो">
+                <h3>टोमॅटो</h3>
+                <button class="info-btn" onclick="selectCrop('टोमॅटो')">अधिक माहिती</button>
+            </div>
+            <div class="crop-card">
+                <img src="images/wheat.jpg" alt="गहू">
+                <h3>गहू</h3>
+                <button class="info-btn" onclick="selectCrop('गहू')">अधिक माहिती</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="ai-section" id="ai">
+        <div class="ai-left">
+            <span class="tag">🤖 AI Powered</span>
+            <h2>शेती मित्र AI</h2>
+            <p>तुमच्या शेतीशी संबंधित कोणताही प्रश्न AI ला विचारा.</p>
+            <button class="btn-primary" onclick="scrollToAI()">
+                <i class="fas fa-robot"></i> AI सुरू करा
+            </button>
+        </div>
+        <div class="ai-right">
+            <img src="images/ai-bot.png" alt="AI Bot">
+        </div>
+    </section>
+
+    <section class="scheme-section" id="schemes">
+        <div class="section-title">
+            <h2>📄 सरकारी योजना</h2>
+            <p>महत्त्वाच्या सरकारी योजनांची माहिती आणि लिंक्स</p>
+        </div>
+        <div class="dashboard-grid">
+            <div class="dashboard-card" onclick="openScheme('pmfby')" style="cursor: pointer;">
+                <h3>पीक विमा</h3>
+                <p>ऑनलाईन अर्ज करा.</p>
+                <button class="btn-outline" style="margin-top: 10px; width: 100%;">अर्ज करा</button>
+            </div>
+            <div class="dashboard-card" onclick="openScheme('pmkisan')" style="cursor: pointer;">
+                <h3>PM-KISAN</h3>
+                <p>हप्ता स्थिती तपासा.</p>
+                <button class="btn-outline" style="margin-top: 10px; width: 100%;">स्थिती पहा</button>
+            </div>
+            <div class="dashboard-card" onclick="openScheme('soil')" style="cursor: pointer;">
+                <h3>मृदा आरोग्य कार्ड</h3>
+                <p>माती परीक्षण माहिती.</p>
+                <button class="btn-outline" style="margin-top: 10px; width: 100%;">अधिक माहिती</button>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" style="text-align: center; padding: 20px; background-color: #f1f8f3; margin-top: 40px;">
+        <hr style="border: 1px solid #ddd; margin-bottom: 20px;">
+        <p class="copyright">© 2026 शेती मित्र | Developed with ❤️ for Farmers</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+
+    
+</body>
+</html>
